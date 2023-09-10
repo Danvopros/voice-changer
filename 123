@@ -1,0 +1,15 @@
+# @title **[1]** Clone repository and install dependencies
+# @markdown This first step will download the latest version of Voice Changer and install the dependencies. **It will take around 2 minutes to complete.**
+
+!git clone --depth 1 https://github.com/w-okada/voice-changer.git &> /dev/null
+
+%cd voice-changer/server/
+print("\033[92mSuccessfully cloned the repository")
+
+!apt-get install libportaudio2 &> /dev/null
+!pip install onnxruntime-gpu uvicorn faiss-gpu fairseq jedi google-colab moviepy decorator==4.4.2 sounddevice numpy==1.23.5 pyngrok --quiet
+!pip install -r requirements.txt --no-build-isolation --quiet
+# Maybe install Tensor packages?
+#!pip install torch-tensorrt
+#!pip install TensorRT
+print("\033[92mSuccessfully installed all packages!")
